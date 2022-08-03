@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <title>Stock en verdulería</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+
+        const productosEnStock = [
+            'Manzana',
+            'Pera',
+            'Naranja',
+            'Banana',
+            'Kiwi'
+        ];
+
+        const productosEnFalta = [
+            'Durazno',
+            'Cereza',
+            'Anana'
+        ]
+
+        function ProductosEnStock(props){
+
+            
+            const elements = props.producto.map( (prod) => 
+                <li>{prod}</li>
+            )
+
+            const listado = 
+                <div>
+                    <h1>Lista de Productos en stock:</h1>
+                    <ul>{elements}</ul>
+                </div>;
+
+            return listado;
+
+        }
+
+        function ProductosEnFalta(props){
+
+            const elements = props.producto.map( (prod) => 
+                <li>{prod}</li>
+            )
+
+            const listado = 
+                <div>
+                    <h2>Productos en falta:</h2>
+                    <ul>{elements}</ul>
+                </div>;
+
+            return listado;
+
+        }
+
+        function Productos(props){
+                        
+            return <div>
+                    <ProductosEnStock producto={props.productosEnStock} />
+                    <ProductosEnFalta producto={props.productosEnFalta} />
+                </div>;
+        }
+
+        ReactDOM.render(
+            <Productos productosEnFalta={productosEnFalta} productosEnStock={productosEnStock} />,document.getElementById("root")
+        );
+
+      
+
+    </script>
+
+
+</body>
+</html>
