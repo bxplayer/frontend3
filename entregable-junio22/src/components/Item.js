@@ -25,21 +25,16 @@ export default function Item( { item, onAddProduct } ) {
   }
 
   return (
-    <div className='producto'>      
-      
-      
-          <h3>{ nombre }</h3>
-          <p>{ descripcion }</p>
-          <h5>
-            En stock: 
-            {(itemStock > 0) ? itemStock : <span>agotado</span> }            
-          </h5>
-          {(itemStock > 0) ? 
-          <button onClick={discountItem}>Comprar</button> : 
-          <button disabled>SIN STOCK</button> }
-          
-          
-
+    <div className='producto'>            
+      <h3>{ nombre }</h3>
+      <p>{ descripcion }</p>
+      <h5>
+        En stock: 
+        {(itemStock > 0) ? itemStock : <span>agotado</span> }            
+      </h5>
+      {(itemStock > 0) ? 
+      <button onClick={discountItem}>Comprar</button> : 
+      <button disabled>SIN STOCK</button> }
     </div>
   )
 }
